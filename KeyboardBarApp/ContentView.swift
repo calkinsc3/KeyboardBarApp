@@ -18,23 +18,21 @@ struct ContentView: View {
         VStack {
             TextField("Enter a number", text: $numberInput)
                 .keyboardType(.numberPad)
-                .onAppear {
-                    self.isKeyboardVisible.toggle()
-                }
                 .padding()
+                .textFieldStyle(.roundedBorder)
             TextField("Enter a string", text: $stringInput)
                 .keyboardType(.default)
-                .onAppear {
-                    self.isKeyboardVisible.toggle()
-                }
                 .padding()
+                .textFieldStyle(.roundedBorder)
             Text("Keyboard height: \(keyboardHeight)")
                 .font(.caption)
             Text("Keyboard is \(isKeyboardVisible ? "visible" : "hidden")")
             Spacer()
             if isKeyboardVisible {
-                KeyboardBarView()
-                    .transition(.move(edge: .bottom)) // Transition effect
+                KeyboardBarView() {
+                    print("Completion called")
+                }
+                .transition(.move(edge: .bottom)) // Transition effect
             }
         }
         .padding()
@@ -56,6 +54,7 @@ struct ContentView: View {
 }
 
 struct KeyboardBarView: View {
+    var successfulCompletion: () -> Void
     var body: some View {
         HStack {
             Spacer()
@@ -63,6 +62,7 @@ struct KeyboardBarView: View {
                 Button {
                     print("Clicked Me!")
                     UIApplication.shared.hideKeyboard()
+                    successfulCompletion()
                 } label: {
                     Label("Search", systemImage: "magnifyingglass.circle")
                 }
@@ -79,7 +79,7 @@ struct KeyboardBarView: View {
         .cornerRadius(8) // Optional: To match the corner radius of the overlay
         .overlay(
             RoundedRectangle(cornerRadius: 8)
-                .stroke(Color.black, lineWidth: 1)
+                .stroke(Color.blue, lineWidth: 1)
         )
         
     }
@@ -96,5 +96,7 @@ extension UIApplication {
 }
 
 #Preview {
-    KeyboardBarView()
+    KeyboardBarView() {
+        print("Successfully Completed")
+    }
 }

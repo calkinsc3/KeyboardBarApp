@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FAB461882CAB460F003B4E43 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB461872CAB460F003B4E43 /* SearchBar.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FAA758652CA88E29009F4930 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,6 +31,7 @@
 		FAA758542CA88E28009F4930 /* KeyboardBarApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KeyboardBarApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA758642CA88E29009F4930 /* KeyboardBarAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardBarAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA7586E2CA88E29009F4930 /* KeyboardBarAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KeyboardBarAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB461872CAB460F003B4E43 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchBar.swift; path = KeyboardBarApp/SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +80,7 @@
 		FAA7584B2CA88E28009F4930 = {
 			isa = PBXGroup;
 			children = (
+				FAB461872CAB460F003B4E43 /* SearchBar.swift */,
 				FAA758562CA88E28009F4930 /* KeyboardBarApp */,
 				FAA758672CA88E29009F4930 /* KeyboardBarAppTests */,
 				FAA758712CA88E29009F4930 /* KeyboardBarAppUITests */,
@@ -236,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB461882CAB460F003B4E43 /* SearchBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

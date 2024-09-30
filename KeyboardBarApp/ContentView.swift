@@ -29,13 +29,16 @@ struct ContentView: View {
             Text("Keyboard is \(isKeyboardVisible ? "visible" : "hidden")")
             Spacer()
             if isKeyboardVisible {
-                KeyboardBarView() {
-                    print("Completion called")
-                }
-                .transition(.move(edge: .bottom)) // Transition effect
+              SearchButtonView {
+                print("Clicked Me!")
+                UIApplication.shared.hideKeyboard()
+                //successfulCompletion()
+              }
+              //.transition(.move(edge: .bottom)) // Transition effect
             }
         }
         .padding()
+        .background(Color.gray.opacity(0.5))
         .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidShowNotification)) { notification in
             if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                 withAnimation {
@@ -59,29 +62,21 @@ struct KeyboardBarView: View {
         HStack {
             Spacer()
             VStack (alignment: .trailing) {
-                Button {
-                    print("Clicked Me!")
-                    UIApplication.shared.hideKeyboard()
-                    successfulCompletion()
-                } label: {
-                    Label("Search", systemImage: "magnifyingglass.circle")
-                }
-                .padding()
-                .cornerRadius(8) // Optional: To match the corner radius of the overlay
-                .overlay(
-                    RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color.blue, lineWidth: 1)
-                )
+              SearchButtonView {
+                print("Clicked Me!")
+                UIApplication.shared.hideKeyboard()
+                successfulCompletion()
+              }
             }
         }
         .frame(height: 38)
         .padding()
         .cornerRadius(8) // Optional: To match the corner radius of the overlay
+        .background(Color.gray)
         .overlay(
             RoundedRectangle(cornerRadius: 8)
                 .stroke(Color.blue, lineWidth: 1)
         )
-        
     }
 }
 

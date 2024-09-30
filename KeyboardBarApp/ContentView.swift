@@ -14,7 +14,7 @@ struct ContentView: View {
     @State private var isKeyboardVisible: Bool = false
     @State private var keyboardHeight: CGFloat = 0
     
-    var body: some View {
+    var body: some View { 
         VStack {
             TextField("Enter a number", text: $numberInput)
                 .keyboardType(.numberPad)

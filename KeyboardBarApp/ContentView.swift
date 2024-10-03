@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   
-  @State private var numberInput: String = ""
+  @State private var numberInput: Double = 0.0
   @State private var formattedNumberInput: String = "$0.00"
   @State private var stringInput: String = ""
   @State private var isKeyboardVisible: Bool = false
@@ -26,18 +26,7 @@ struct ContentView: View {
   
   var body: some View {
     VStack {
-      TextField("Enter a number", text: Binding(
-        get: { formattedNumberInput },
-        set: { newValue in
-          let cleanInput = newValue.justDigits
-          if cleanInput.count <= 10 {
-            numberInput = cleanInput
-            formattedNumberInput = cleanInput.asCurrencyString
-          } else {
-            numberInput = ""
-            formattedNumberInput = "0".asCurrencyString
-          }
-        }))
+      TextField("Enter Numbers", value: $numberInput, formatter: NumberFormatter.currency)
       .keyboardType(.decimalPad)
       .padding()
       .textFieldStyle(.roundedBorder)
@@ -130,8 +119,16 @@ extension String {
     numberFormatter.locale = Locale(identifier: "en_US")
     
     let numberValue = Double(self.justDigits) ?? 0
-    return numberFormatter.string(from: numberValue as NSNumber) ?? "?"
+    return numberFormatter.string(from: numberValue as NSNumber) ?? "0"
   }
+}
+
+extension NumberFormatter {
+    static var currency: NumberFormatter {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }
 }
 
 

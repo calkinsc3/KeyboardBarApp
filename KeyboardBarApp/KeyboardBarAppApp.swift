@@ -11,7 +11,7 @@ import SwiftUI
 struct KeyboardBarAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          KeyboardTabView()
         }
     }
 }

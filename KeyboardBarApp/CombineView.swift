@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct CombineView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  
+  @StateObject var combineViewModel = CombineViewModel()
+  
+  @State var numberInput: Double = 0
+  
+  var body: some View {
+    VStack {
+      TextField("Enter Numbers", value: $combineViewModel.combineNumberInput, formatter: NumberFormatter.currency)
+        .keyboardType(.decimalPad)
+        .padding()
+        .textFieldStyle(.roundedBorder)
     }
+    
+  }
 }
 
 #Preview {
-    CombineView()
+  CombineView()
 }

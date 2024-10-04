@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UIKitWrapper: View {
   
-  @State var currencyText: String = ""
+  @State var currencyText: String = "$0.00"
     var body: some View {
       VStack {
         CurrencyEntryTextField(text: $currencyText, keyboardType: .numberPad, placeholder: "Enter a Currency")

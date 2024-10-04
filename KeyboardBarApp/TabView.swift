@@ -12,6 +12,7 @@ enum Tabs: Equatable, Hashable {
   case chatGPTTab
   case combineTab
   case mediumTab
+  case uiKitWrapperTab
   
 }
 
@@ -43,6 +44,11 @@ struct KeyboardTabView: View {
             Label("Medium", systemImage: "book.fill")
           }
           .tag(Tabs.mediumTab)
+        UIKitWrapper()
+          .tabItem {
+            Label("UIKit", systemImage: "pencil.and.outline")
+          }
+          .tag(Tabs.uiKitWrapperTab)
       }
     }
 }

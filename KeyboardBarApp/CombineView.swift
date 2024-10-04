@@ -22,6 +22,9 @@ struct CombineView: View {
       Text("Formatted value: \(viewModel.inputText)")
     }
     .padding()
+    .onTapGesture {
+      UIApplication.shared.hideKeyboard()
+    }
   }
 }
 

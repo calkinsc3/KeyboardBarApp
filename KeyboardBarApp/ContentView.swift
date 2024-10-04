@@ -69,6 +69,9 @@ struct ContentView: View {
         self.keyboardHeight = 0
       }
     }
+    .onTapGesture {
+      UIApplication.shared.hideKeyboard()
+    }
   }
 }
 

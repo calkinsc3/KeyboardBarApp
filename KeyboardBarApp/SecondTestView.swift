@@ -30,6 +30,9 @@ struct SecondTestView: View {
             }
         }
         .padding()
+        .onTapGesture {
+          UIApplication.shared.hideKeyboard()
+        }
     }
 }
 

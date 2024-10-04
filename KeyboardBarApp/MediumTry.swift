@@ -30,6 +30,9 @@ struct MediumTry: View {
         .keyboardType(.decimalPad)
     }
     .padding()
+    .onTapGesture {
+      UIApplication.shared.hideKeyboard()
+    }
   }
 }
 

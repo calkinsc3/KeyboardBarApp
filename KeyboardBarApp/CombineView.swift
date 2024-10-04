@@ -9,18 +9,19 @@ import SwiftUI
 
 struct CombineView: View {
   
-  @StateObject var combineViewModel = CombineViewModel()
-  
-  @State var numberInput: Double = 0
+  @StateObject private var viewModel = CombineViewModel()
   
   var body: some View {
     VStack {
-      TextField("Enter Numbers", value: $combineViewModel.combineNumberInput, formatter: NumberFormatter.currency)
+      TextField("Enter amount", text: $viewModel.inputText)
         .keyboardType(.decimalPad)
         .padding()
-        .textFieldStyle(.roundedBorder)
+        .textFieldStyle(RoundedBorderTextFieldStyle())
+      
+      // Display the current formatted value
+      Text("Formatted value: \(viewModel.inputText)")
     }
-    
+    .padding()
   }
 }
 

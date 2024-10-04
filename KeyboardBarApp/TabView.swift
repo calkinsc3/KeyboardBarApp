@@ -11,6 +11,7 @@ enum Tabs: Equatable, Hashable {
   case getSetTab
   case chatGPTTab
   case combineTab
+  case mediumTab
   
 }
 
@@ -36,6 +37,12 @@ struct KeyboardTabView: View {
             Label("Combine", systemImage: "scroll.fill")
           }
           .tag(Tabs.combineTab)
+        
+        MediumTry()
+          .tabItem {
+            Label("Medium", systemImage: "book.fill")
+          }
+          .tag(Tabs.mediumTab)
       }
     }
 }

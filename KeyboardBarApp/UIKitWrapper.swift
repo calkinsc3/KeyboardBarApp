@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct UIKitWrapper: View {
+  
+  @State var currencyText: String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      VStack {
+        CurrencyEntryTextField(text: $currencyText, keyboardType: .numberPad, placeholder: "Enter a Currency")
+          .padding()
+          .buttonBorderShape(.roundedRectangle)
+        Button("Done") {
+          UIApplication.shared.hideKeyboard()
+        }
+        Spacer()
+      }
     }
 }
+
 
 #Preview {
     UIKitWrapper()

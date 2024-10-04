@@ -21,6 +21,7 @@ struct CurrencyEntryTextField: UIViewRepresentable {
     textField.autocapitalizationType = .none
     textField.spellCheckingType = .no
     textField.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+    textField.keyboardType = keyboardType
     return textField
   }
   
@@ -35,7 +36,7 @@ struct CurrencyEntryTextField: UIViewRepresentable {
   
   class Coordinator: NSObject, UITextFieldDelegate {
     var currencyEntryTextField: CurrencyEntryTextField
-    let maxCharacterCount: Int = 6
+    let maxCharacterCount: Int = 8
     
     init(_ currencyEntryTextField: CurrencyEntryTextField) {
       self.currencyEntryTextField = currencyEntryTextField
